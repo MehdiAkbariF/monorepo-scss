@@ -1,0 +1,17 @@
+//================================================
+// General Variables
+//================================================
+
+//--- Spacing
+$spacing-base: 1rem; // 16px
+$spacing-xs: $spacing-base * 0.25; // 4px
+$spacing-sm: $spacing-base * 0.5;   // 8px
+$spacing-md: $spacing-base;         // 16px
+$spacing-lg: $spacing-base * 1.5;   // 24px
+$spacing-xl: $spacing-base * 2;     // 32px
+
+//--- Border Radius
+$border-radius-base: 0.25rem; // 4px
+$border-radius-sm: 0.2rem;   // 3.2px
+$border-radius-lg: 0.3rem;   // 4.8px
+$border-radius-pill: 50rem;

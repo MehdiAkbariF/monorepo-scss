@@ -1,18 +1,15 @@
-// 1. Settings
-@import '1-settings/colors';
-@import '1-settings/typography';
-@import '1-settings/variables';
+// packages/design-system/src/main.scss
 
-// 2. Tools
-@import '2-tools/mixins';
+@use '1-settings/colors';
+@use '1-settings/theme-vars';
+@use '1-settings/typography';
+@use '1-settings/variables';
 
-// 3. Generic
-@import '3-generic/normalize';
+@use '2-tools/mixins';
 
-// 4. Elements (Atoms)
-@import '4-elements/buttons'; // <-- مطمئن شوید این خط وجود دارد
-@import '4-elements/inputs';
+@use '3-generic/normalize';
 
-// 5. Components (Molecules/Organisms)
-@import '5-components/card';
-@import '5-components/navbar';
+// Elements (Atoms)
+@use '4-elements/base'; // <-- این خط را اضافه کنید
+@use '4-elements/buttons';
+

@@ -1,0 +1,63 @@
+// packages/design-system/src/4-elements/_base.scss
+
+@use '../1-settings/theme-vars' as *;
+@use '../1-settings/typography' as *;
+@use '../1-settings/variables' as *;
+
+// --- 1. استایل پایه Body
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+  
+  // رنگ‌های پایه از سیستم تم
+  color: $color-text-primary;
+  background-color: $color-bg-body;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// --- 2. سرفصل‌ها (Headings)
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: $spacing-3;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  color: $color-text-primary; // سرفصل‌ها هم از رنگ متن اصلی استفاده می‌کنند
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+// --- 3. پاراگراف و لینک
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-3;
+}
+
+a {
+  color: $color-text-link;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// --- 4. سایر عناصر متنی
+small {
+  font-size: $font-size-sm;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $color-border-primary;
+  margin: $spacing-4 0;
+}

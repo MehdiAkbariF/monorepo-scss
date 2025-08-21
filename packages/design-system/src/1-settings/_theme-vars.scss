@@ -1,0 +1,28 @@
+// This file acts as a bridge between CSS variables and SCSS.
+
+// Brand
+$color-brand-primary: var(--color-brand-primary);
+$color-brand-secondary: var(--color-brand-secondary);
+$color-brand-accent: var(--color-brand-accent);
+
+// Text
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-placeholder: var(--color-text-placeholder);
+$color-text-on-brand: var(--color-text-on-brand);
+$color-text-link: var(--color-text-link);
+
+// Background
+$color-bg-body: var(--color-bg-body);
+$color-bg-surface: var(--color-bg-surface);
+$color-bg-surface-hover: var(--color-bg-surface-hover);
+
+// Border & Dividers
+$color-border-primary: var(--color-border-primary);
+$color-border-secondary: var(--color-border-secondary);
+
+// Utility
+$color-utility-success: var(--color-utility-success);
+$color-utility-error: var(--color-utility-error);
+$color-utility-warning: var(--color-utility-warning);
+$color-utility-info: var(--color-utility-info);

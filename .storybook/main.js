@@ -1,37 +1,54 @@
-/** @type { import('@storybook/html-webpack5').StorybookConfig } */
+/** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-    stories: [
-      "../packages/design-system/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-      "../packages/ui-components/src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
-    ],
-    addons: [
-      "@storybook/addon-links",
-      "@storybook/addon-essentials",
-      "@storybook/addon-interactions",
-      {
-        // ما addon را به صورت یک آبجکت پیکربندی می‌کنیم
-        name: "@storybook/addon-styling-webpack",
-        options: {
-          // در اینجا قوانین را به صورت دستی تعریف می‌کنیم
-          rules: [
-            {
-              test: /\.scss$/,
-              use: [
-                "style-loader", // 3. استایل را به DOM تزریق می‌کند
-                "css-loader",   // 2. کدهای @import و url() را مدیریت می‌کند
-                "sass-loader",  // 1. فایل SCSS را به CSS کامپایل می‌کند
-              ],
-            },
-          ],
-        },
-      },
-    ],
-    framework: {
-      name: "@storybook/html-webpack5",
-      options: {},
+  stories: [
+    "../packages/design-system/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    // "../packages/ui-components/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+  ],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-themes",
+    // ما addon-styling-webpack را حذف می‌کنیم چون قوانین را دستی تعریف می‌کنیم
+  ],
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+  docs: {
+    autodocs: "tag",
+  },
+  
+  // 👇 این بخش جدید و بسیار مهم است
+ webpackFinal: async (config) => {
+  // 1. حذف rule پیش‌فرض برای فایل‌های تصویری که ممکن است تداخل ایجاد کند
+  const imageRule = config.module.rules.find(
+    (rule) => rule.test && rule.test.test('.svg')
+  );
+  if (imageRule) {
+    imageRule.exclude = /\.svg$/;
+  }
+
+  // 2. اضافه کردن rule جدید برای پردازش SCSS (این بخش صحیح بود)
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: ['style-loader', 'css-loader', 'sass-loader'],
+  });
+
+  // 3. اضافه کردن rule جدید و تمیز برای پردازش TS/TSX
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    loader: 'babel-loader',
+    options: {
+      presets: [
+        '@babel/preset-env',
+        '@babel/preset-react',
+        '@babel/preset-typescript',
+      ],
     },
-    docs: {
-      autodocs: "tag",
-    },
-  };
-  export default config;
+  });
+
+    return config;
+  },
+};
+export default config;

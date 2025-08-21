@@ -1,53 +1,69 @@
-//================================================
-// Buttons
-//================================================
+@use '../1-settings/theme-vars' as *;
+@use '../1-settings/variables' as *;
+@use '../1-settings/typography' as *;
 
 .btn {
   display: inline-block;
-  font-family: $font-family-sans-serif;
-  font-weight: $font-weight-bold;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  background-color: transparent;
   border: 1px solid transparent;
-  padding: $spacing-sm $spacing-md;
-  font-size: $font-size-base;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
   line-height: 1.5;
-  border-radius: $border-radius-base;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-align: center;
+  user-select: none;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap; // ⬅ جلوگیری از رفتن متن به خط بعد
 
-  &:hover {
-    text-decoration: none;
+  padding: $spacing-2 $spacing-3;
+  font-size: $font-size-base;
+
+  &:focus-visible {
+    outline: 2px solid $color-brand-primary;
+    outline-offset: 2px;
   }
 
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba($color-primary, 0.25);
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    pointer-events: none;
   }
 }
 
-//--- Button Primary
+
+// --- 3. Modifier های سایز ---
+.btn-lg {
+  padding: $spacing-3 $spacing-4;
+  font-size: $font-size-lg;
+  border-radius: $border-radius-lg;
+}
+
+.btn-sm {
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-sm;
+  border-radius: $border-radius;
+}
+
+
+// --- 4. Variant ها (بدون تغییر) ---
 .btn-primary {
-  color: $color-white;
-  background-color: $color-primary;
-  border-color: $color-primary;
+  color: $color-text-on-brand;
+  background-color: $color-brand-primary;
+  border-color: $color-brand-primary;
 
-  &:hover {
-    background-color: darken($color-primary, 10%);
-    border-color: darken($color-primary, 12%);
+  &:hover:not(:disabled) { // افکت هاور فقط برای دکمه‌های فعال
+    filter: brightness(110%);
   }
 }
 
-//--- Button Secondary
 .btn-secondary {
-  color: $color-white;
-  background-color: $color-secondary;
-  border-color: $color-secondary;
+  color: $color-text-primary;
+  background-color: transparent;
+  border-color: $color-border-primary;
 
-  &:hover {
-    background-color: darken($color-secondary, 10%);
-    border-color: darken($color-secondary, 12%);
+  &:hover:not(:disabled) {
+    color: $color-brand-primary;
+    border-color: $color-brand-primary;
+    background-color: rgba($color-brand-primary, 0.1); // افکت پس‌زمینه ملایم در هاور
   }
 }

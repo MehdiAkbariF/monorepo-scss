@@ -1,23 +1,105 @@
 //================================================
-// Colors
+// Color Tokens
 //================================================
 
-//--- Brand Colors
-$color-primary: #4a90e2;         // آبی اصلی
-$color-secondary: #50e3c2;      // سبز ثانویه
-$color-accent: #f5a623;          // نارنجی تاکیدی
+// --- 1. Raw Color Palette (پالت رنگ خام)
 
-//--- Grayscale
-$color-white: #ffffff;
-$color-gray-100: #f8f9fa;
-$color-gray-300: #dee2e6;
-$color-gray-500: #adb5bd;
-$color-gray-700: #495057;
-$color-gray-900: #212529;
-$color-black: #000000;
+// Brand Colors
+$primary-blue-light: #007aff; // Primary در لایت مود
+$primary-blue-dark:  #3b82f6; // Primary در دارک مود (روشن‌تر برای کنتراست بهتر)
+$secondary-teal:     #5ac8fa;
+$accent-orange:      #ff9500;
 
-//--- Feedback Colors
-$color-success: #28a745;
-$color-warning: #ffc107;
-$color-error: #dc3545;
-$color-info: #17a2b8;
+// Neutral Colors (Grayscale)
+$gray-0:    #ffffff;    // White
+$gray-100:  #f8f9fa;    // Lightest Gray
+$gray-200:  #e9ecef;
+$gray-300:  #dee2e6;
+$gray-400:  #ced4da;
+$gray-500:  #adb5bd;
+$gray-600:  #6c757d;
+$gray-700:  #495057;
+$gray-800:  #343a40;
+$gray-900:  #212529;    // Darkest Gray
+$gray-1000: #000000;    // Black
+
+// Utility Colors
+$utility-green:  #34c759; // Success
+$utility-red:    #ff3b30; // Error, Danger
+$utility-yellow: #ffcc00; // Warning
+$utility-blue:   #007aff; // Info
+
+// Secondary Background Colors
+$secondary-bg-light: #f1f5f9; // خاکستری خیلی روشن با ته‌مایه آبی (Tailwind slate-100)
+$secondary-bg-dark:  #1e293b; // خاکستری تیره با ته‌مایه آبی (Tailwind slate-800)
+
+// Accent Background Colors (اختیاری)
+$accent-bg-light: #e0f2fe; // آبی خیلی روشن (Tailwind sky-100)
+$accent-bg-dark:  #0c4a6e; // آبی خیلی تیره (Tailwind sky-900)
+
+//================================================
+// Semantic Theme Variables
+//================================================
+
+:root,
+.light {
+  // Brand
+  --color-brand-primary:   #{$primary-blue-light};
+  --color-brand-secondary: #{$secondary-teal};
+  --color-brand-accent:    #{$accent-orange};
+
+  // Text
+  --color-text-primary:    #{$gray-900};
+  --color-text-secondary:  #{$gray-600};
+  --color-text-placeholder:#{$gray-500};
+  --color-text-on-brand:   #{$gray-0};
+  --color-text-link:       #{$primary-blue-light};
+
+  // Background
+  --color-bg-body:         #{$gray-100};
+  --color-bg-surface:      #{$gray-0};
+  --color-bg-surface-hover:#{$gray-100};
+  --color-bg-secondary:    #{$secondary-bg-light};
+  --color-bg-accent:       #{$accent-bg-light};
+
+  // Border
+  --color-border-primary:  #{$gray-300};
+  --color-border-secondary:#{$gray-200};
+
+  // Utility
+  --color-utility-success: #{$utility-green};
+  --color-utility-error:   #{$utility-red};
+  --color-utility-warning: #{$utility-yellow};
+  --color-utility-info:    #{$utility-blue};
+}
+
+.dark {
+  // Brand
+  --color-brand-primary:   #{$primary-blue-dark};
+  --color-brand-secondary: #{$secondary-teal};
+  --color-brand-accent:    #{$accent-orange};
+
+  // Text
+  --color-text-primary:    #{$gray-100};
+  --color-text-secondary:  #{$gray-400};
+  --color-text-placeholder:#{$gray-500};
+  --color-text-on-brand:   #{$gray-0};
+  --color-text-link:       #{$secondary-teal};
+
+  // Background
+  --color-bg-body:         #{$gray-1000};
+  --color-bg-surface:      #{$gray-900};
+  --color-bg-surface-hover:#{$gray-800};
+  --color-bg-secondary:    #{$secondary-bg-dark};
+  --color-bg-accent:       #{$accent-bg-dark};
+
+  // Border
+  --color-border-primary:  #{$gray-800};
+  --color-border-secondary:#{$gray-700};
+
+  // Utility
+  --color-utility-success: #{$utility-green};
+  --color-utility-error:   #{$utility-red};
+  --color-utility-warning: #{$utility-yellow};
+  --color-utility-info:    #{$utility-blue};
+}

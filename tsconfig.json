@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@my-admin/ui-components": ["packages/ui-components/src/index.ts"],
+      "@my-admin/common": ["packages/common/src/index.ts"]
+    }
+  },
+  "include": ["packages/**/*"]
+}
